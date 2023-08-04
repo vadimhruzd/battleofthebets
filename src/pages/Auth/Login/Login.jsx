@@ -13,7 +13,8 @@ const Login = () => {
           type="icon"
           onSuccess={(credentialResponse) => {
             localStorage.setItem("user", credentialResponse.credential);
-            window.location.reload();
+
+            console.log(credentialResponse);
           }}
           onError={() => {
             alert("Login failed");
