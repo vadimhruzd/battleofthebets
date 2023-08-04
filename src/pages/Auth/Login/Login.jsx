@@ -8,7 +8,7 @@ const Login = () => {
     <div className={s.login_wrapper}>
       {" "}
       Battle of the bets
-      <GoogleOAuthProvider clientId="958581006053-815her0t23joqn72dnimthp5l0auu4bd.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
         <GoogleLogin
           type="icon"
           onSuccess={(credentialResponse) => {
