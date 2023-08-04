@@ -1,9 +1,11 @@
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import s from "./Login.module.scss";
 import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   console.log(localStorage.getItem("user"));
+  const navigate = useNavigate();
   return (
     <div className={s.login_wrapper}>
       {" "}
@@ -13,8 +15,8 @@ const Login = () => {
           type="icon"
           onSuccess={(credentialResponse) => {
             localStorage.setItem("user", credentialResponse.credential);
-
             console.log(jwtDecode(credentialResponse.credential));
+            navigate("/profile");
           }}
           onError={() => {
             alert("Login failed");
