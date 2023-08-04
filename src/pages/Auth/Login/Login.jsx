@@ -14,7 +14,7 @@ const Login = () => {
           onSuccess={(credentialResponse) => {
             localStorage.setItem("user", credentialResponse.credential);
 
-            console.log(credentialResponse);
+            console.log(jwtDecode(credentialResponse.credential));
           }}
           onError={() => {
             alert("Login failed");
