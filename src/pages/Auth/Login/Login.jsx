@@ -16,7 +16,6 @@ const Login = () => {
           onSuccess={(credentialResponse) => {
             localStorage.setItem("user", credentialResponse.credential);
             console.log(jwtDecode(credentialResponse.credential));
-            navigate("/profile");
           }}
           onError={() => {
             alert("Login failed");
