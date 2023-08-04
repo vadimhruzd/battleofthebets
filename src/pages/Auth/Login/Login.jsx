@@ -15,7 +15,7 @@ const Login = () => {
           type="icon"
           onSuccess={(credentialResponse) => {
             localStorage.setItem("user", credentialResponse.credential);
-            console.log(jwtDecode(credentialResponse));
+            console.log(credentialResponse);
             console.log(localStorage.getItem("user"));
           }}
           onError={() => {
