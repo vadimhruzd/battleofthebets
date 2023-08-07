@@ -41,6 +41,7 @@ const Login = () => {
                     console.log(response);
                     localStorage.setItem("idToken", response.idToken);
                     localStorage.setItem("user", response.userId);
+                    navigate("/profile");
                   })
                   .catch((error) => console.log(error));
               }}
