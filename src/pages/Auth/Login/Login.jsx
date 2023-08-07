@@ -4,6 +4,9 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useAuthMutation } from "../../../store/api/AuthApi";
 
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
+
 const Login = () => {
   console.log(localStorage.getItem("user"));
   const navigate = useNavigate();
@@ -31,6 +34,17 @@ const Login = () => {
           }}
         />
       </GoogleOAuthProvider>
+      <LoginSocialFacebook
+        appId="239859572250126"
+        onResolve={(response) => {
+          console.log(response);
+        }}
+        onReject={(error) => {
+          console.log(error);
+        }}
+      >
+        <FacebookLoginButton />
+      </LoginSocialFacebook>
     </div>
   );
 };
