@@ -11,7 +11,7 @@ const Profile = () => {
   const user = localStorage?.getItem("user");
   return (
     <div>
-      <div>Hello: {user}</div>
+      <div className={s.user_id}>Hello: {user}</div>
       <button onClick={logout}>Logout</button>
     </div>
   );
