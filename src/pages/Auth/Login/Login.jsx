@@ -52,7 +52,7 @@ const Login = () => {
           client_id="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com"
           onResolve={(credentialResponse) => {
             console.log(credentialResponse);
-            auth(credentialResponse)
+            auth(credentialResponse.data.access_token)
               .unwrap()
               .then((response) => {
                 console.log(response);
