@@ -49,7 +49,7 @@ const Login = () => {
         <FacebookLoginButton />
       </LoginSocialFacebook>
       <LoginSocialApple
-        client_id="com.BeardTheBet.BattleOfTheBets"
+        client_id="6455939972"
         onResolve={(response) => {
           console.log(response);
         }}
