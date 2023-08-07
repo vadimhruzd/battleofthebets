@@ -20,9 +20,9 @@ const Login = () => {
             // console.log(localStorage.getItem("user"));
             auth(credentialResponse.credential)
               .unwrap()
-              .then((request, response) => {
-                console.log(request);
-                console.log(response);
+              .then((response) => {
+                localStorage.setItem("user", response.userId);
+                window.location.reload();
               })
               .catch((error) => console.log(error));
           }}

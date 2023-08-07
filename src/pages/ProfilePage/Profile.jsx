@@ -8,10 +8,10 @@ const logout = () => {
 };
 
 const Profile = () => {
-  const user = jwtDecode(localStorage?.getItem("user"));
+  const user = localStorage?.getItem("user");
   return (
     <div>
-      <div>Hello: {user.name}</div>
+      <div>Hello: {user}</div>
       <button onClick={logout}>Logout</button>
     </div>
   );
