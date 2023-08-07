@@ -94,7 +94,7 @@ const Login = () => {
         <LoginSocialApple
           className={s.btn}
           scope={"name email"}
-          client_id="6455939972"
+          client_id="com.BeardTheBet.BattleOfTheBets"
           onResolve={({ provider, data }) => {
             console.log(provider);
             console.log(data);
