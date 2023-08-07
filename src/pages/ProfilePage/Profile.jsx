@@ -16,12 +16,20 @@ const Profile = () => {
   const handleDeletePlayer = () => {
     console.log(user);
     console.log(idToken);
-    deleteUser(user);
+    deleteUser(user)
+      .unwrap()
+      .then(() => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("idToken");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div>
-      <div className={s.user_id}>Hello:</div>
       <button onClick={handleDeletePlayer}>DELETE ACCOUNT</button>
       <button onClick={logout}>Logout</button>
     </div>
