@@ -8,6 +8,11 @@ export const authApi = createApi({
   tagTypes: ["authApi"],
   baseQuery: fetchBaseQuery({
     baseUrl: URL,
+    prepareHeaders: (headers) => {
+      headers.set("ProjectId", "62cdb128-3951-4c12-a5c3-9ba93bed190d");
+      headers.set("UnityEnvironment", "production");
+      return headers;
+    },
   }),
   endpoints: (builder) => ({
     auth: builder.mutation({
@@ -20,11 +25,6 @@ export const authApi = createApi({
             signInOnly: false,
           },
         };
-      },
-      prepareHeaders: (headers) => {
-        headers.set("ProjectId", "dd55fb39-3557-4a96-82fd-90e986cd5938");
-        headers.set("UnityEnvironment", "production");
-        return headers;
       },
     }),
   }),
