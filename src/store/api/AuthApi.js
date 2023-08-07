@@ -11,16 +11,18 @@ export const authApi = createApi({
   }),
   endpoints: (builder) => ({
     auth: builder.mutation({
-      query: (body) => {
+      query: (token) => {
         return {
           url: URL,
           method: "POST",
           body: {
-            token: body,
+            token: token,
+            signInOnly: false,
           },
           prepareHeaders: (headers) => {
             headers.set("Content-Type", "application/json");
             headers.set("ProjectId", "62cdb128-3951-4c12-a5c3-9ba93bed190d");
+            headers.set("UnityEnvironment", "production");
             return headers;
           },
         };

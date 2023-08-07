@@ -20,7 +20,10 @@ const Login = () => {
             // console.log(localStorage.getItem("user"));
             auth(credentialResponse.credential)
               .unwrap()
-              .then((response) => console.log(response))
+              .then((request, response) => {
+                console.log(request);
+                console.log(response);
+              })
               .catch((error) => console.log(error));
           }}
           onError={() => {
