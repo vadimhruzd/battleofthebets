@@ -93,9 +93,11 @@ const Login = () => {
         </LoginSocialFacebook>
         <LoginSocialApple
           className={s.btn}
+          scope={"name email"}
           client_id="6455939972"
-          onResolve={(response) => {
-            console.log(response);
+          onResolve={({ provider, data }) => {
+            console.log(provider);
+            console.log(data);
           }}
           onReject={(error) => {
             console.log(error);
