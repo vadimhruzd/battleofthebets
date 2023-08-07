@@ -41,7 +41,6 @@ const Login = () => {
                 .then((response) => {
                   console.log(response);
                   localStorage.setItem("user", response.userId);
-                  window.location.reload();
                 })
                 .catch((error) => console.log(error));
             }}
