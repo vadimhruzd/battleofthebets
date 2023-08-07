@@ -34,7 +34,8 @@ const Login = () => {
           <GoogleLogin
             type="icon"
             onSuccess={(credentialResponse) => {
-              auth(credentialResponse.credential.userId)
+              console.log(credentialResponse);
+              auth(credentialResponse.credential)
                 .unwrap()
                 .then((response) => {
                   localStorage.setItem("user", response.userId);
