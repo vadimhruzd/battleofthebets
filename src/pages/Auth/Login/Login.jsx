@@ -30,26 +30,27 @@ const Login = () => {
       </div>
       <div className={s.text}>Login via social networks</div>
       <div className={s.auth_btns}>
-        <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
-          <GoogleLogin
-            className={s.btn}
-            type="icon"
-            onSuccess={(credentialResponse) => {
-              console.log(credentialResponse);
-              auth(credentialResponse.credential)
-                .unwrap()
-                .then((response) => {
-                  console.log(response);
-                  localStorage.setItem("idToken", response.idToken);
-                  localStorage.setItem("user", response.userId);
-                })
-                .catch((error) => console.log(error));
-            }}
-            onError={() => {
-              alert("Login failed");
-            }}
-          />
-        </GoogleOAuthProvider>
+        <div className={s.btnGoogle}>
+          <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
+            <GoogleLogin
+              type="icon"
+              onSuccess={(credentialResponse) => {
+                console.log(credentialResponse);
+                auth(credentialResponse.credential)
+                  .unwrap()
+                  .then((response) => {
+                    console.log(response);
+                    localStorage.setItem("idToken", response.idToken);
+                    localStorage.setItem("user", response.userId);
+                  })
+                  .catch((error) => console.log(error));
+              }}
+              onError={() => {
+                alert("Login failed");
+              }}
+            />
+          </GoogleOAuthProvider>
+        </div>
         {/* <LoginSocialGoogle
           className={s.btn}
           client_id="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com"
