@@ -11,6 +11,7 @@ const logout = () => {
 const Profile = () => {
   const [deleteUser] = useDeleteMutation();
   const user = localStorage?.getItem("user");
+  console.log(user);
 
   const handleDeletePlayer = () => {
     deleteUser(user);
@@ -18,7 +19,7 @@ const Profile = () => {
 
   return (
     <div>
-      <div className={s.user_id}>Hello: {user}</div>
+      <div className={s.user_id}>Hello:</div>
       <button onClick={handleDeletePlayer}>DELETE ACCOUNT</button>
       <button onClick={logout}>Logout</button>
     </div>
