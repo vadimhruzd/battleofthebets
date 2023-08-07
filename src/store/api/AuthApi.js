@@ -22,7 +22,7 @@ export const authApi = createApi({
           method: "POST",
           body: {
             token: token,
-            signInOnly: false,
+            signInOnly: true,
           },
         };
       },
