@@ -4,8 +4,11 @@ import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useAuthMutation } from "../../../store/api/AuthApi";
 
-import { LoginSocialFacebook } from "reactjs-social-login";
-import { FacebookLoginButton } from "react-social-login-buttons";
+import { LoginSocialFacebook, LoginSocialApple } from "reactjs-social-login";
+import {
+  FacebookLoginButton,
+  AppleLoginButton,
+} from "react-social-login-buttons";
 
 const Login = () => {
   console.log(localStorage.getItem("user"));
@@ -45,6 +48,17 @@ const Login = () => {
       >
         <FacebookLoginButton />
       </LoginSocialFacebook>
+      <LoginSocialApple
+        client_id="com.BeardTheBet.BattleOfTheBets"
+        onResolve={(response) => {
+          console.log(response);
+        }}
+        onReject={(error) => {
+          console.log(error);
+        }}
+      >
+        <AppleLoginButton />
+      </LoginSocialApple>
     </div>
   );
 };
