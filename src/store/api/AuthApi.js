@@ -21,7 +21,7 @@ export const authApi = createApi({
           },
           prepareHeaders: (headers) => {
             headers.set("Content-Type", "application/json");
-            headers.set("ProjectId", "62cdb128-3951-4c12-a5c3-9ba93bed190d");
+            headers.set("ProjectId", "dd55fb39-3557-4a96-82fd-90e986cd5938");
             headers.set("UnityEnvironment", "production");
             return headers;
           },
