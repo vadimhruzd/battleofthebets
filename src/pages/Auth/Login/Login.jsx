@@ -30,11 +30,11 @@ const Login = () => {
       </div>
       <div className={s.text}>Login via social networks</div>
       <div className={s.auth_btns}>
-        {/* <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
-          {/* <GoogleLogin
+        <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
+          <GoogleLogin
             type="icon"
             onSuccess={(credentialResponse) => {
-              auth(credentialResponse.credential)
+              auth(credentialResponse.credential.userId)
                 .unwrap()
                 .then((response) => {
                   localStorage.setItem("user", response.userId);
@@ -45,8 +45,9 @@ const Login = () => {
             onError={() => {
               alert("Login failed");
             }}
-          /> */}
-        <LoginSocialGoogle
+          />
+        </GoogleOAuthProvider>
+        {/* <LoginSocialGoogle
           className={s.btn}
           client_id="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com"
           onResolve={(credentialResponse) => {
@@ -69,7 +70,7 @@ const Login = () => {
             align="center"
             preventActiveStyles={true}
           />
-        </LoginSocialGoogle>
+        </LoginSocialGoogle> */}
         <LoginSocialFacebook
           className={s.btn}
           appId="239859572250126"
