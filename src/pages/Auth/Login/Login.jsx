@@ -39,7 +39,8 @@ const Login = () => {
               auth(credentialResponse.credential)
                 .unwrap()
                 .then((response) => {
-                  localStorage.setItem("user", response);
+                  console.log(response);
+                  localStorage.setItem("user", response.userId);
                   window.location.reload();
                 })
                 .catch((error) => console.log(error));
