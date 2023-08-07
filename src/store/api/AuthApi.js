@@ -18,7 +18,6 @@ export const authApi = createApi({
     auth: builder.mutation({
       query: (token) => {
         return {
-          url: URL,
           method: "POST",
           body: {
             token: token,
