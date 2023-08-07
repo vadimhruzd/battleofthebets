@@ -19,13 +19,12 @@ export const authApi = createApi({
             token: token,
             signInOnly: false,
           },
-          prepareHeaders: (headers) => {
-            headers.set("Content-Type", "application/json");
-            headers.set("ProjectId", "dd55fb39-3557-4a96-82fd-90e986cd5938");
-            headers.set("UnityEnvironment", "production");
-            return headers;
-          },
         };
+      },
+      prepareHeaders: (headers) => {
+        headers.set("ProjectId", "dd55fb39-3557-4a96-82fd-90e986cd5938");
+        headers.set("UnityEnvironment", "production");
+        return headers;
       },
     }),
   }),
