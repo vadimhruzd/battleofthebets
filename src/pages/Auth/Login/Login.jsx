@@ -33,7 +33,6 @@ const Login = () => {
         <div className={s.btnGoogle}>
           <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
             <GoogleLogin
-              type="icon"
               onSuccess={(credentialResponse) => {
                 console.log(credentialResponse);
                 auth(credentialResponse.credential)
@@ -75,7 +74,7 @@ const Login = () => {
             preventActiveStyles={true}
           />
         </LoginSocialGoogle> */}
-        <LoginSocialFacebook
+        {/* <LoginSocialFacebook
           className={s.btn}
           appId="239859572250126"
           onResolve={(response) => {
@@ -104,7 +103,7 @@ const Login = () => {
           }}
         >
           <AppleLoginButton text="" align="center" preventActiveStyles={true} />
-        </LoginSocialApple>
+        </LoginSocialApple> */}
       </div>
     </div>
   );
