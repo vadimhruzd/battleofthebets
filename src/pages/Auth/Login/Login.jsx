@@ -40,6 +40,7 @@ const Login = () => {
                 .unwrap()
                 .then((response) => {
                   console.log(response);
+                  localStorage.setItem("idToken", response.idToken);
                   localStorage.setItem("user", response.userId);
                 })
                 .catch((error) => console.log(error));

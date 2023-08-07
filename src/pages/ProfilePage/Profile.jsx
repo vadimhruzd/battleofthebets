@@ -11,7 +11,6 @@ const logout = () => {
 const Profile = () => {
   const [deleteUser] = useDeleteMutation();
   const user = localStorage?.getItem("user");
-  console.log(user);
 
   const handleDeletePlayer = () => {
     deleteUser(user);

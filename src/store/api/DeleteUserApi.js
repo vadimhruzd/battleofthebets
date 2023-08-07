@@ -8,7 +8,9 @@ export const deleteApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: URL,
     prepareHeaders: (headers) => {
+      const idtoken = localStorage?.getItem("idToken");
       headers.set("ProjectId", "62cdb128-3951-4c12-a5c3-9ba93bed190d");
+      headers.set("Authorization", "Bearer "`${idtoken}`);
       return headers;
     },
   }),
