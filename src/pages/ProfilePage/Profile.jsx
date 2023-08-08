@@ -26,7 +26,7 @@ const Profile = () => {
   return (
     <div className={s.profile_wrapper}>
       <ShowConfirm
-        deleteUserId={user}
+        user={user}
         showConfirmModal={showConfirmModal}
         handleCloseConfirmModal={handleCloseConfirmModal}
       />
