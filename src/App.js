@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const isLoggedIn = localStorage.getItem("user");
-//const isLoggedIn = true;
 function App() {
   const message = useSelector((state) => state.message);
 
