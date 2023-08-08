@@ -21,7 +21,7 @@ export const authApi = createApi({
           method: "POST",
           body: {
             token: token,
-            //signInOnly: true,
+            signInOnly: true,
           },
         };
       },

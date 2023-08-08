@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { authApi } from "./api/AuthApi";
 import { deleteApi } from "./api/DeleteUserApi";
+import messageReducer from "./slices/message";
 
 const reducer = combineReducers({
+  message: messageReducer,
   [authApi.reducerPath]: authApi.reducer,
   [deleteApi.reducerPath]: deleteApi.reducer,
 });

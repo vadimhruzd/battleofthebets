@@ -1,7 +1,8 @@
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import s from "./Profile.module.scss";
-import jwtDecode from "jwt-decode";
 import { useDeleteMutation } from "../../store/api/DeleteUserApi";
+import Button from "../../components/Button";
+import ShowConfirm from "../../components/ShowConfirm/ShowConfirm";
+import { useState } from "react";
 
 const logout = () => {
   localStorage.removeItem("user");
@@ -9,29 +10,36 @@ const logout = () => {
 };
 
 const Profile = () => {
-  const [deleteUser] = useDeleteMutation();
   const user = localStorage?.getItem("user");
   const idToken = localStorage?.getItem("idToken");
 
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+
+  const handleCloseConfirmModal = () => {
+    setShowConfirmModal(false);
+  };
+
   const handleDeletePlayer = () => {
-    console.log(user);
-    console.log(idToken);
-    deleteUser(user)
-      .unwrap()
-      .then(() => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("idToken");
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    setShowConfirmModal(true);
   };
 
   return (
-    <div>
-      <button onClick={handleDeletePlayer}>DELETE ACCOUNT</button>
-      <button onClick={logout}>Logout</button>
+    <div className={s.profile_wrapper}>
+      <ShowConfirm
+        deleteUserId={user}
+        showConfirmModal={showConfirmModal}
+        handleCloseConfirmModal={handleCloseConfirmModal}
+      />
+      <div className={s.text}>Hello: {user}</div>
+      <div className={s.buttons}>
+        <Button onClick={handleDeletePlayer} text="Delete account"></Button>
+        <Button
+          onClick={logout}
+          text="Logout"
+          backgroundColor="white"
+          textColor="#484848"
+        ></Button>
+      </div>
     </div>
   );
 };

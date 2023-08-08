@@ -2,10 +2,25 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Profile from "./pages/ProfilePage";
 import Auth from "./pages/Auth";
+import "react-toastify/dist/ReactToastify.css";
+import { Slide, ToastContainer, toast } from "react-toastify";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const isLoggedIn = localStorage.getItem("user");
-
+//const isLoggedIn = true;
 function App() {
+  const message = useSelector((state) => state.message);
+
+  useEffect(() => {
+    if (!message) {
+      return;
+    }
+    toast(message.message, {
+      type: message.type,
+    });
+  }, [message]);
+
   return (
     <>
       {!isLoggedIn ? (
@@ -19,6 +34,18 @@ function App() {
           </Routes>
         </div>
       )}
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        transition={Slide}
+        pauseOnFocusLoss
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
