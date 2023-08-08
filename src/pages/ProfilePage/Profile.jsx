@@ -1,7 +1,7 @@
 import s from "./Profile.module.scss";
 import { useDeleteMutation } from "../../store/api/DeleteUserApi";
 import Button from "../../components/Button";
-import ShowConfirm from "../../components/ShowConfirm/ShowConfirm";
+import ShowConfirm from "../../components/ShowConfirm";
 import { useState } from "react";
 
 const logout = () => {
