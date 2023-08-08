@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { setMessage } from "../../../store/slices/message";
 
 const Login = () => {
-  console.log(localStorage.getItem("user"));
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [auth] = useAuthMutation();
@@ -25,11 +24,9 @@ const Login = () => {
           <GoogleOAuthProvider clientId="485675376523-a4vgo2kde09v6s93144f8bi3rvu43is7.apps.googleusercontent.com">
             <GoogleLogin
               onSuccess={(credentialResponse) => {
-                console.log(credentialResponse);
                 auth(credentialResponse.credential)
                   .unwrap()
                   .then((response) => {
-                    console.log(response);
                     localStorage.setItem("idToken", response.idToken);
                     localStorage.setItem("user", response.userId);
                     window.location.reload();
